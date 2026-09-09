@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos do site -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte Roboto do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>Cafe Show</title>
+</head>
+
+<body>
+
+    <!-- ===================== HEADER / MENU DE NAVEGAÇÃO ===================== -->
+    <header class="header">
+        <section>
+            <!-- Logo do site -->
+            <a href="#" class="logo">
+                <img src="./imagens/logo.png" alt="logo">
+            </a>
+
+            <!-- Links de navegação (âncoras para as seções da página) -->
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#menu">Menu</a>
+                <a href="#review">Avaliações</a>
+                <a href="#address">Endereço</a>
+            </nav>
+
+            <!-- Ícones do header: carrinho (abre o modal do carrinho) e busca -->
+            <div class="icons">
+                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png"
+                    alt="shopping-cart--v1" />
+                <!-- ↑ Esse ícone recebe um listener no script.js que chama abrirCarrinho() -->
+
+                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/search--v1.png"
+                    alt="search--v1" />
+            </div>
+        </section>
+    </header>
+
+    <!-- ===================== SEÇÃO HOME (BANNER PRINCIPAL) ===================== -->
+    <div class="Home-container">
+        <section id="home">
+            <div class="content">
+                <h3>COM O MELHOR CAFÉ DA REGIÃO</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, obcaecati fuga! Mollitia nisi
+                    commodi nobis at non ullam architecto quisquam, autem, sint facere voluptate aspernatur placeat,
+                    maxime quas vel provident.</p>
+                <a href="#" class="btn">Pegue o seu agora</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===================== SEÇÃO SOBRE ===================== -->
+    <section class="about" id="about">
+        <h2 class="title">Sobre<span> Nós</span></h2>
+        <div class="row">
+            <div class="container-image">
+                <img src="./imagens/cafe9.jpeg" alt="sobre-nos">
+            </div>
+            <div class="content">
+                <h3>O Que Faz Nosso Café Especial</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab sit ratione, fuga ipsam quas
+                    voluptatibus! Suscipit maxime explicabo doloribus, recusandae praesentium laboriosam architecto
+                    beatae, perspiciatis, quam ut deleniti vero atque!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, error deleniti! Nobis atque doloribus
+                    libero ab ducimus aliquid, provident repellendus ut labore voluptatum, ex fugit voluptates?
+                    Laboriosam dolore aperiam ab.</p>
+                <a href="#" class="btn">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SEÇÃO MENU (PRODUTOS DINÂMICOS) ===================== -->
+    <!--
+        Essa seção NÃO tem os produtos escritos direto no HTML.
+        O container abaixo (id="menu-container") começa vazio e é
+        preenchido dinamicamente pela função carregarProdutos() do script.js,
+        que busca os dados em GET /api/produtos (rota do backend Express).
+    -->
+    <section class="menu" id="menu">
+        <h2 class="title">Nosso <span>Menu</span></h2>
+
+        <div class="box-container" id="menu-container">
+            <!-- os produtos (cards) serão inseridos aqui via JavaScript -->
+        </div>
+    </section>
+
+    <!-- ===================== SEÇÃO AVALIAÇÕES ===================== -->
+    <section class="review" id="review">
+        <h2 class="title">Nossos <span>Clientes</span></h2>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="./imagens/quote-img.png" alt="comentário">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquid facilis voluptatibus cumque
+                    possimus veritatis fugiat dolorum quis saepe, expedita officia consequuntur ea iusto culpa laborum,
+                    reiciendis sunt obcaecati fuga!</p>
+                <img src="./imagens/pic-1.png" alt="foto-cliente" class="user">
+                <h3>João Santos</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/star-half-empty.png" alt="star-half-empty" />
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="./imagens/quote-img.png" alt="comentário">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquid facilis voluptatibus cumque
+                    possimus veritatis fugiat dolorum quis saepe, expedita officia consequuntur ea iusto culpa laborum,
+                    reiciendis sunt obcaecati fuga!</p>
+                <img src="./imagens/pic-2.png" alt="foto-cliente" class="user">
+                <h3>Maria Santos</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/star-half-empty.png" alt="star-half-empty" />
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="./imagens/quote-img.png" alt="comentário">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquid facilis voluptatibus cumque
+                    possimus veritatis fugiat dolorum quis saepe, expedita officia consequuntur ea iusto culpa laborum,
+                    reiciendis sunt obcaecati fuga!</p>
+                <img src="./imagens/pic-3.png" alt="foto-cliente" class="user">
+                <h3>Theo Brito</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/star--v1.png" alt="star--v1" />
+                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/ffffff/star-half-empty.png" alt="star-half-empty" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SEÇÃO ENDEREÇO (MAPA) ===================== -->
+    <section class="address" id="address">
+        <h2 class="title">Nosso <span>Endereço</span></h2>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29246.789427217103!2d-46.73032752682183!3d-23.609759317436367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57ced76885af%3A0xa0144d5c05eb5f8e!2sBrunella!5e0!3m2!1spt-BR!2sbr!4v1712098575388!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- ===================== FOOTER (REDES SOCIAIS) ===================== -->
+    <section class="footer">
+        <div class="share">
+            <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new--v1.png" alt="instagram-new--v1" />
+            <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png" alt="facebook--v1" />
+            <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="twitter" />
+        </div>
+    </section>
+
+    <!-- ===================== MODAL DO CARRINHO ===================== -->
+    <!--
+        Fica escondido (display:none, ver .cart-modal no CSS) até o usuário
+        clicar no ícone de carrinho no header. A classe "active" (adicionada
+        via JS em abrirCarrinho()) é o que efetivamente exibe o painel.
+    -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h3>Seu Carrinho</h3>
+                <!-- Fecha o modal ao clicar (listener em fecharCarrinho()) -->
+                <span class="close-cart" id="close-cart">&times;</span>
+            </div>
+
+            <!-- Itens do carrinho são inseridos aqui via renderizarCarrinho() -->
+            <div class="cart-items" id="cart-items">
+                <!-- itens do carrinho aparecem aqui -->
+            </div>
+
+            <!-- Total da compra, atualizado junto com os itens -->
+            <div class="cart-total" id="cart-total"></div>
+        </div>
+    </div>
+
+    <!-- Script principal: precisa vir no final do body para garantir que
+         todos os elementos do HTML (menu-container, cart-modal, etc.)
+         já existam na página antes do JS tentar manipulá-los -->
+    <script src="script.js"></script>
+
+</body>
+</html>

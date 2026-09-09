@@ -1,0 +1,385 @@
+/* =====================================================
+   VARIÁVEIS GLOBAIS
+   Cores e valores reutilizados em todo o site.
+   ===================================================== */
+:root {
+    --main-color: #d3ad7f;   /* cor principal (dourado/café) usada em títulos, botões, destaques */
+    --black: #13131a;        /* fundo escuro de caixas (cards, seção "sobre", modal do carrinho) */
+    --bg: #010103;           /* fundo geral do body */
+    --border: 0.1rem solid rgba(255, 255, 255, 0.599); /* borda padrão usada em várias seções */
+    font-size: 10px;         /* base para as unidades rem (1rem = 10px nesse projeto) */
+}
+
+/* Reset básico: remove margens/paddings padrão do navegador e
+   padroniza fonte e comportamento de transições em todo elemento */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+/* Todas as <section> seguem uma largura máxima centralizada,
+   mantendo o conteúdo alinhado mesmo em telas grandes */
+section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+
+/* =====================================================
+   HEADER (menu fixo no topo)
+   ===================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99; /* fica acima do conteúdo da página ao rolar */
+    border-bottom: var(--border);
+    background-color: var(--bg);
+}
+
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+    border-bottom: 0.1rem solid var(--main-color);
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+/* Ícones do header (carrinho e busca) */
+.icons {
+    position: relative; /* necessário para o #cart-count se posicionar em cima do ícone */
+}
+
+.icons img {
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.icons img:hover {
+    width: 40px;
+    height: 40px;
+}
+
+/* Bolinha numerada que mostra a quantidade de itens no carrinho.
+   Esse elemento é CRIADO dinamicamente pelo script.js
+   (função atualizarContadorCarrinho), não existe no HTML. */
+#cart-count {
+    background: var(--main-color);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.1rem 0.6rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -0.5rem;
+    right: 0.5rem;
+}
+
+/* Botão padrão usado em várias seções (hero, sobre, cards do menu) */
+.btn {
+    background: var(--main-color);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.btn:hover {
+    letter-spacing: 0.1rem;
+}
+
+
+/* =====================================================
+   SEÇÃO HOME (banner principal com imagem de fundo)
+   ===================================================== */
+.Home-container {
+    background: url("./imagens/home-img.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.Home-container section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 60rem;
+}
+
+.content h3 {
+    color: #fff;
+    font-size: 6rem;
+}
+
+.content p {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 100;
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+/* Título padrão de cada seção (ex: "Nosso Menu", "Nossos Clientes") */
+.title {
+    font-size: 4rem;
+    color: var(--main-color);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+}
+
+.title span {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   SEÇÃO SOBRE
+   ===================================================== */
+.about .row {
+    display: flex;
+    align-items: center;
+    background-color: var(--black);
+    gap: 1.5rem;
+}
+
+.about .row .content {
+    padding: 2rem;
+}
+
+.about .row .content h3 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.about .row .content p {
+    font: 1.6rem;
+    color: #fff;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   GRID REUTILIZÁVEL (usado no menu e nas avaliações)
+   ===================================================== */
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+
+/* =====================================================
+   SEÇÃO MENU (cards de produtos gerados via JavaScript)
+   ===================================================== */
+.menu .box-container .box {
+    text-align: center;
+    border: var(--border);
+    padding: 5rem;
+    cursor: pointer;
+}
+
+.menu .box-container .box:hover {
+    background-color: #fff;
+}
+
+.menu .box-container .box img {
+    height: 10rem;
+}
+
+.menu .box-container .box h3 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.menu .box-container .box .price {
+    color: #fff;
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+}
+
+.menu .box-container .box .price span {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+
+/* Ao passar o mouse no card, o fundo fica branco (regra acima)
+   e o texto interno fica escuro para manter contraste */
+.menu .box-container .box:hover > * {
+    color: var(--black);
+}
+
+
+/* =====================================================
+   SEÇÃO AVALIAÇÕES
+   ===================================================== */
+.review .box-container .box {
+    border: var(--border);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.review .box-container .box p {
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 2rem 0;
+    line-height: 1.8;
+    font-weight: lighter;
+}
+
+.review .box-container .box h3 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.review .box-container .box .user {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   SEÇÃO ENDEREÇO
+   ===================================================== */
+.address {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer {
+    text-align: center;
+}
+
+.footer .share {
+    padding: 1rem 0;
+}
+
+.footer .share img {
+    margin: 0.3rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.footer .share img:hover {
+    background-color: var(--main-color);
+}
+
+
+/* =====================================================
+   MODAL DO CARRINHO
+   Painel lateral fixo que fica escondido até receber a
+   classe "active" (adicionada pelo script.js ao clicar
+   no ícone do carrinho).
+   ===================================================== */
+.cart-modal {
+    display: none; /* escondido por padrão */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35rem;
+    max-width: 90%;
+    height: 100vh;
+    background: var(--black);
+    border-left: var(--border);
+    z-index: 999; /* acima de tudo, inclusive do header */
+    padding: 2rem;
+    overflow-y: auto; /* permite rolar se tiver muitos itens */
+}
+
+/* Classe adicionada/removida via JavaScript (abrirCarrinho / fecharCarrinho) */
+.cart-modal.active {
+    display: block;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-header h3 {
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+/* Botão "×" de fechar o modal */
+.close-cart {
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+/* Cada linha de produto dentro do carrinho */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+}
+
+/* Botão "×" de remover um item específico do carrinho
+   (criado dinamicamente dentro de cada .cart-item pelo script.js) */
+.remove-item {
+    color: var(--main-color);
+    cursor: pointer;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+}
+
+.remove-item:hover {
+    color: #fff;
+}
+
+.cart-total {
+    color: var(--main-color);
+    font-size: 2rem;
+    text-align: right;
+    padding-top: 1.5rem;
+}
